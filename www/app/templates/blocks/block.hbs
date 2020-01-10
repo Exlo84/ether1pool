@@ -1,14 +1,14 @@
 <tr>
   <td>
     {{#if block.uncle}}
-      <a href="https://explorer.ether1.org/uncles/{{block.uncleHeight}}" rel="nofollow" target="_blank">{{format-number block.height}}</a>
+      <a href="https://explorer.ether1.org/blocks/{{block.uncleHeight}}" rel="nofollow" target="_blank">{{format-number block.height}}</a>
     {{else}}
       <a href="https://explorer.ether1.org/blocks/{{block.height}}" rel="nofollow" target="_blank">{{format-number block.height}}</a>
     {{/if}}
   </td>
   <td>
     {{#if block.uncle}}
-      <a href="https://explorer.ether1.org/uncles/{{block.hash}}" class="hash" rel="nofollow" target="_blank">{{block.hash}}</a>
+      <a href="https://explorer.ether1.org/blocks/{{block.hash}}" class="hash" rel="nofollow" target="_blank">{{block.hash}}</a>
     {{else if block.orphan}}
       <span class="label label-danger">Orphan</span>
     {{else}}

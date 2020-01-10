@@ -2,40 +2,23 @@
   <div class="page-header">
     <h1>How To Mine</h1>
   </div>
-  <p class="lead">In order to mine on this pool you need to have an
-    <a href="https://github.com/ethereum/webthree-umbrella/releases" rel="nofollow" target="_blank">ethminer</a> installation
-    pointed to<br/><code>{{config.HttpHost}}:{{config.HttpPort}}/YOUR_ETH_ADDRESS/RIG_ID</code>
-  </p>
-  <dl class="dl-horizontal">
-    <dt>YOUR_ETH_ADDRESS</dt>
-    <dd>This is your address for payouts, generate one with geth, or mine directly to exchange like
-      <a href="http://poloniex.com" rel="nofollow" target="_blank">Poloniex</a>
-      or <a href="http://bittrex.com" rel="nofollow" target="_blank">Bittrex</a>.<br/>
-      <strong>Example:</strong> <code>0xb85150eb365e7df0941f0cf08235f987ba91506a</code>.
-    </dd>
-    <dt>RIG_ID</dt>
-    <dd>
-      ID of your farm to distinguish it from your other rig. If you have just one rig, feel free to omit this param.
-      This param must be short alphanumeric string with optional dashes and underscores.<br/>
-      <strong>Example:</strong> <code>rig-1</code>
-    </dd>
-  </dl>
-  <p>
-    <strong>Full example:</strong>
-    <code>ethminer -F {{config.HttpHost}}:{{config.HttpPort}}/0xb85150eb365e7df0941f0cf08235f987ba91506a/myfarm -G --farm-recheck 200</code>.<br/>
-    <span class="label label-info">Hint:</span> If you are compiling ethminer from latest source, please also use
-      extra <code>--disable-submit-hashrate</code> option.
-  </p>
 
-  <h4>Stratum Mining with Stratum Proxy for Ethereum</h4>
-  <p class="lead">Grab proxy from <a href="https://github.com/Atrides/eth-proxy" re="nofollow" target="_blank">eth-proxy GitHub repo</a>.</p>
-  <p class="lead">Edit <code>eth-proxy.conf</code> and specify our pool's <code>HOST: {{config.StratumHost}}</code>, <code>PORT: {{config.StratumPort}}</code> and your <code>WALLET</code>.</p>
+  <h4>You can mine using two different kinds of software as expalined below. Make sure you use the right difficulty to mine as shown on the examples, based on the number of cards you're mining with.</h4>
 
-  <h4>Mining with Ether-Proxy</h4>
-  <p class="lead">Use stable release of <a href="https://github.com/sammy007/ether-proxy/releases" target="_blank">Ethereum Solo/Pool Mining Proxy</a>.</p>
+  <h4>1a.) Claymore Miner</h4>
+  <p class="lead">Grab a copy of Claymore miner from <a href="https://bitcointalk.org/index.php?topic=1433925.0" re="nofollow" target="_blank">the BitcoinTalk (BCT) page</a>. The BCT page contains examples of the options you can set for mining.</code></p>
+  <strong>Mining with just 1-2 cards:</strong><br/> <code>EthDcrMiner64.exe -epool stratum+tcp://ethopool.ether1cloud:1222 -ewal 0x008c26f3a2Ca8bdC11e5891e0278c9436B6F5d1E -eworker Rig1 -epsw x -allcoins 1 -allpools 1 -mode 1 -dcri 1 -tt 60 -fanmax 90</code>.
+  <strong>Mining with a rig of 6-8 cards:</strong><br/> <code>EthDcrMiner64.exe -epool stratum+tcp://ethopool.ether1cloud:1444 -ewal 0x008c26f3a2Ca8bdC11e5891e0278c9436B6F5d1E -eworker Rig1 -epsw x -allcoins 1 -allpools 1 -mode 1 -dcri 1 -tt 60 -fanmax 90</code>.
+  <strong>Mining with a whole farm or renting hash:</strong><br/> <code>EthDcrMiner64.exe -epool stratum+tcp://ethopool.ether1cloud:1444 -ewal 0x008c26f3a2Ca8bdC11e5891e0278c9436B6F5d1E -eworker Rig1 -epsw x -allcoins 1 -allpools 1 -mode 1 -dcri 1 -tt 60 -fanmax 90</code>.
 
-  <h4>Advice</h4>
-  <p>CPU mining is not recommended.</p>
+  <h4>1b.) Phoenix Miner</h4>
+  <p class="lead">Grab a copy of Phoenix miner from <a href="https://bitcointalk.org/index.php?topic=2647654.0" re="nofollow" target="_blank">the BitcoinTalk (BCT) page</a>. The BCT page contains examples of the options you can set for mining. Just edit <code>start_miner.bat</code></p>
+  <strong>Mining with just 1-2 cards:</strong><br/> <code>PhoenixMiner.exe -pool ethopool.ether1cloud:1222 -worker WorkerName -wal 0x008c26f3a2Ca8bdC11e5891e0278c9436B6F5d1E -pass x -retrydelay 2</code>.
+  <strong>Mining with a rig of 6-8 cards:</strong><br/> <code>PhoenixMiner.exe -pool ethopool.ether1cloud:1444 -worker WorkerName -wal 0x008c26f3a2Ca8bdC11e5891e0278c9436B6F5d1E -pass x -retrydelay 2</code>.
+  <strong>Mining with a whole farm or renting hash:</strong><br/> <code>PhoenixMiner.exe -pool ethopool.ether1cloud:1999 -worker WorkerName -wal 0x008c26f3a2Ca8bdC11e5891e0278c9436B6F5d1E -pass x -retrydelay 2</code>.
+
+  <h4>2.) Proxy mining is also available on ports 12222, 14444, and 19999 depending on your preferred difficulty.</h4>
+
   <h4>Terms of Service</h4>
   <p>By using the pool you accept all possible risks related to experimental software usage.<br/>
      Pool owner can't compensate any irreversible losses, but will do his best to prevent worst case.

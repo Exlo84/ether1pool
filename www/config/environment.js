@@ -19,15 +19,15 @@ module.exports = function(environment) {
 
       // HTTP mining endpoint
       HttpHost: 'http://ethopool.ether1.cloud',
-      HttpPort: 8888,
+      HttpPort: 14444,
 
       // Stratum mining endpoint
       StratumHost: 'ethopool.ether1.cloud',
-      StratumPort: 8008,
+      StratumPort: 1444,
 
       // Fee and payout details
       PoolFee: '1%',
-      PayoutThreshold: '8.8 ETHO',
+      PayoutThreshold: '1 ETHO',
 
       // For network hashrate (change for your favourite fork)
       BlockTime: 13
