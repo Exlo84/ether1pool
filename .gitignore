@@ -1,6 +1,6 @@
 .DS_Store
 config.json
 testnet.json
+open-ethereum-pool
 
 /build/_workspace/
-/build/bin/
