@@ -83,8 +83,8 @@
 	"unlocker": {
 		"enabled": true,
 		"poolFee": 1.0,
-		"poolFeeAddress": "",
-		"donate": true,
+		"poolFeeAddress": "0x3f7719aa27b1107991e208ba2335c0a8afe8cb21",
+		"donate": false,
 		"depth": 120,
 		"immatureDepth": 20,
 		"keepTxFees": false,
