@@ -26,7 +26,7 @@ module.exports = function(environment) {
       StratumPort: 1444,
 
       // Fee and payout details
-      PoolFee: '1%',
+      PoolFee: '0.33%',
       PayoutThreshold: '1 ETHO',
 
       // For network hashrate (change for your favourite fork)
