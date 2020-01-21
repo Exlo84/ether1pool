@@ -19,7 +19,7 @@
       {{#link-to 'blocks.immature'}}Immature <span class="badge alert-success">{{format-number model.immatureTotal}}</span>{{/link-to}}
     {{/active-li}}
     {{#active-li currentWhen='blocks.pending' role='presentation'}}
-      {{#link-to 'blocks.pending'}}New Blocks <span class="badge alert-info">{{format-number model.candidatesTotal}}</span>{{/link-to}}
+      {{#link-to 'blocks.pending'}}New Blocks <span class="badge alert-success">{{format-number model.candidatesTotal}}</span>{{/link-to}}
     {{/active-li}}
   </ul>
   {{outlet}}
