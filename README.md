@@ -66,9 +66,11 @@ Installing Redis latest version
 * Set daemonize to yes (by default it is set to no).
 * Set the dir to /var/redis/6379 (very important step!)
 
+Run
+
     sudo mkdir /var/redis/6379
     sudo update-rc.d redis_6379 defaults
-    sudo /etc/init.d/redis_6379 start
+    sudo /etc/init.d/redis_6379 start   
     
 ### Install Geth
 
