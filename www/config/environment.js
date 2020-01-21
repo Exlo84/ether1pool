@@ -15,18 +15,18 @@ module.exports = function(environment) {
 
     APP: {
       // API host and port
-      ApiUrl: '//ethopool.ether1.cloud:8080/',
+      ApiUrl: 'https://ethodream.exlo.tech/',
 
       // HTTP mining endpoint
-      HttpHost: 'http://ethopool.ether1.cloud',
-      HttpPort: 14444,
+      HttpHost: 'http://ethodream.exlo.tech',
+      HttpPort: 8888,
 
       // Stratum mining endpoint
-      StratumHost: 'ethopool.ether1.cloud',
-      StratumPort: 1444,
+      StratumHost: 'ethodream.exlo.tech',
+      StratumPort: 8008,
 
       // Fee and payout details
-      PoolFee: '0.33%',
+      PoolFee: '0.5%',
       PayoutThreshold: '1 ETHO',
 
       // For network hashrate (change for your favourite fork)
