@@ -1,6 +1,6 @@
 {
 	"threads": 2,
-	"coin": "eth",
+	"coin": "etho",
 	"name": "main",
 
 	"proxy": {
@@ -81,8 +81,8 @@
 	},
 
 	"unlocker": {
-		"enabled": false,
-		"poolFee": 1.0,
+		"enabled": true,
+		"poolFee": 0.5,
 		"poolFeeAddress": "",
 		"donate": true,
 		"depth": 120,
@@ -94,16 +94,16 @@
 	},
 
 	"payouts": {
-		"enabled": false,
+		"enabled": true,
 		"requirePeers": 25,
-		"interval": "60m",
+		"interval": "3h",
 		"daemon": "http://127.0.0.1:8545",
 		"timeout": "10s",
-		"address": "0x0",
+		"address": "0x",
 		"gas": "21000",
 		"gasPrice": "50000000000",
 		"autoGas": true,
-		"threshold": 500000000,
+		"threshold": 100000000,
 		"bgsave": false
 	},
 
