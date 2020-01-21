@@ -61,10 +61,10 @@ Installing Redis latest version
     sudo cp redis.conf /etc/redis/6379.conf
     sudo nano /etc/redis/6379.conf
     
-**Edit the configuration file, making sure to perform the following changes:
+*Edit the configuration file, making sure to perform the following changes:
 
-Set daemonize to yes (by default it is set to no).
-Set the dir to /var/redis/6379 (very important step!)
+* Set daemonize to yes (by default it is set to no).
+* Set the dir to /var/redis/6379 (very important step!)
 
     sudo mkdir /var/redis/6379
     sudo update-rc.d redis_6379 defaults
@@ -115,7 +115,7 @@ Register pool account and open wallet for transaction. This process is always re
     mv config.example.json config.json
     nano config.json
 
-Make pool system sercive
+Make pool system service
 
     sudo nano /etc/systemd/system/pool.service
 
@@ -145,7 +145,7 @@ Modify your configuration file
 
     nano ~/ether1pool/www/config/environment.js
 
-Greate frontend
+Create frontend
 
     cd ~/ether1pool/www/
     
