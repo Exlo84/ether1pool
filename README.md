@@ -166,6 +166,7 @@ Configure nginx to serve <code>www/dist</code> as static website.
 #### Serving API using nginx
 
 Edit this
+
     sudo nano /etc/nginx/sites-available/default
 
 Delete everything in the file and replace it with the text below.
@@ -196,6 +197,7 @@ Be sure to change with your info
 Save and close
 
 Restart nginx
+
     sudo service nginx restart
 
 ### Notes
