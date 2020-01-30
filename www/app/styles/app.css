@@ -185,9 +185,10 @@ span.logo-3 {
 }
 
 .note-info {
-	background-color: #E8F6FC;
-	border-color: #57b5e3;
-  color: #333333;
+	background-color: #12060e;
+	border-color: #c3376c;
+	color: #c3376c;
+	opacity: 0.8;
 }
 
 .note-danger {
@@ -293,6 +294,7 @@ a {
 .table-responsive {
     color: #c3376c;
     background-color: #12060e;
+    border-color: #12060e;
     padding: 5px 5px 0px;
     border-radius: 20px 20px 0px 0px;
     margin-bottom:20px;
@@ -300,6 +302,7 @@ a {
 .table-responsive a {
     color: #004bb1;
     background-color: #12060e;
+    border-color: #12060e;
 }
 
 .table-striped>tbody>tr:nth-of-type(odd) {
