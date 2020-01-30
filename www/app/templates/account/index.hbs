@@ -1,13 +1,17 @@
 <div class="container">
+  {{#if config.highcharts.account.enabled}}
+    {{high-charts mode=chartMode chartOptions=chartOptions content=chartData}}
+  {{/if}}
   {{#if model.workers}}
   <h4>Your Workers</h4>
   <div class="table-responsive">
     <table class="table table-condensed table-striped">
       <thead>
         <tr>
-          <th>ID</th>
-          <th>Hashrate (rough, short average)</th>
-          <th>Hashrate (accurate, long average)</th>
+          <th>ID</th> 
+          <th>Hashrate (1H)</th>
+          <th>Hashrate (6H)</th>
+          <th>{{t "account.earnings.perday"}} ({{t "account.earnings.short_avg"}})</th>
           <th>Last Share</th>
         </tr>
       </thead>
@@ -17,6 +21,7 @@
             <td>{{k}}</td>
             <td>{{format-hashrate v.hr}}</td>
             <td>{{format-hashrate v.hr2}}</td>
+            <td>{{format-number (worker-earnperday v.hr stat.difficulty)}}</td>
             <td>{{format-relative (seconds-to-ms v.lastBeat)}}</td>
           </tr>
         {{/each-in}}
@@ -34,6 +39,6 @@
     so you can perform maintenance of your rigs.
   </div>
   <div class="alert alert-info" role="alert">
-    <strong>Your bulk stats JSON API URL:</strong> <a href="/api/accounts/{{model.login}}">/api/accounts/{{model.login}}</a>
+    <strong>Your bulk stats JSON API URL:</strong> <a href="{{config.ApiUrl}}api/accounts/{{model.login}}">/api/accounts/{{model.login}}</a>
   </div>
 </div>
