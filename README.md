@@ -80,7 +80,7 @@ Run
     rm ether-1-linux-1.3.0.tar.gz
     sudo mv geth /usr/local/bin/geth 
 
-Make geth system sercive
+Make geth system service
 
     sudo nano /etc/systemd/system/geth.service
     
