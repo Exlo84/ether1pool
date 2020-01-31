@@ -26,7 +26,7 @@ Dependencies:
 First of all let's get up to date and install the dependencies:
 
     sudo apt-get update && sudo apt-get dist-upgrade -y
-    sudo apt-get install build-essential make git screen curl nginx -y
+    sudo apt-get install build-essential make git screen curl nginx tcl -y
 
 Install GO:
 
@@ -36,6 +36,15 @@ Install GO:
     sudo mv go /usr/local
     export GOROOT=/usr/local/go
     export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+    
+    sudo nano ~/.profile
+    
+    #add this in the end and save
+    export PATH=$PATH:/usr/local/go/bin
+    
+    source ~/.profile
+    go version
+
 
 Clone & compile:
 
@@ -46,32 +55,60 @@ Clone & compile:
 
 Installing Redis latest version
 
-    wget http://download.redis.io/redis-stable.tar.gz
-    tar xvzf redis-stable.tar.gz
+    curl -O http://download.redis.io/redis-stable.tar.gz
+    tar xzvf redis-stable.tar.gz
     cd redis-stable
     make
+    make test 
+    sudo make install
     
-    sudo cp src/redis-server /usr/local/bin/
-    sudo cp src/redis-cli /usr/local/bin/
-        
     sudo mkdir /etc/redis
-    sudo mkdir /var/redis
+    sudo cp ~/redis-stable/redis.conf /etc/redis
+    sudo nano /etc/redis/redis.conf
+        
+    # Set supervised to systemd
+      supervised systemd
+    # Set the dir
+      dir /var/lib/redis
             
-    sudo cp utils/redis_init_script /etc/init.d/redis_6379
-    sudo cp redis.conf /etc/redis/6379.conf
-    sudo nano /etc/redis/6379.conf
+        
+**Create a Redis systemd Unit File
+
+    sudo nano /etc/systemd/system/redis.service
+
+Add
+
+    [Unit]
+    Description=Redis In-Memory Data Store
+    After=network.target
+
+    [Service]
+    User=redis
+    Group=redis
+    ExecStart=/usr/local/bin/redis-server /etc/redis/redis.conf
+    ExecStop=/usr/local/bin/redis-cli shutdown
+    Restart=always
+
+    [Install]
+    WantedBy=multi-user.target
     
-*Edit the configuration file, making sure to perform the following changes:
+**Create the Redis User, Group and Directories
 
-* Set daemonize to yes (by default it is set to no).
-* Set the dir to /var/redis/6379 (very important step!)
-
-Run
-
-    sudo mkdir /var/redis/6379
-    sudo update-rc.d redis_6379 defaults
-    sudo /etc/init.d/redis_6379 start   
+    sudo adduser --system --group --no-create-home redis
+    sudo mkdir /var/lib/redis
+    sudo chown redis:redis /var/lib/redis
+    sudo chmod 770 /var/lib/redis
     
+### Start and Test Redis
+
+    sudo systemctl start redis
+    sudo systemctl status redis
+
+### Install Node.js
+
+    curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+    sudo apt-get install nodejs -y
+
 ### Install Geth
 
     cd ~
@@ -128,7 +165,7 @@ Copy the following
     After=geth.target
     
     [Service]
-    ExecStart=/home/<name>/ether1pool/build/bin/open-ethereum-pool /home/<name>/ether1pool/config.json
+    ExecStart=/home/<name>/ether1pool/build/bin/open-ethereum-pool /home/<name>/ether1pool/build/bin/api.json
     
     [Install]
     WantedBy=multi-user.target
@@ -151,7 +188,7 @@ Create frontend
 
     cd ~/ether1pool/www/
     
-    sudo npm install -g ember-cli@2.9.1
+    sudo npm install -g ember-cli@^2.18.2
     sudo npm install -g bower
     sudo chown -R $USER:$GROUP ~/.npm
     sudo chown -R $USER:$GROUP ~/.config
