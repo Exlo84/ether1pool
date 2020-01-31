@@ -23,14 +23,42 @@ module.exports = function(environment) {
 
       // Stratum mining endpoint
       StratumHost: 'ethodream.exlo.tech',
-      StratumPort: 8008,
+      StratumPort: 8004,
 
       // Fee and payout details
       PoolFee: '0.5%',
       PayoutThreshold: '1 ETHO',
 
       // For network hashrate (change for your favourite fork)
-      BlockTime: 13
+      BlockTime: 13,
+
+      // Coin ticket
+      Unit: 'ETHO',
+
+      //Chart config
+      highcharts: {
+        main: {
+          enabled: true,
+          height: 300,
+          type: 'areaspline',
+          color: '#c3376c',
+          title: '',
+          ytitle: '',
+          interval: 180000,
+          chartInterval: 900000
+        },
+        account: {
+          enabled: true,
+          height: 300,
+          type: 'spline',
+          color: [ '', '' ],
+          title: '',
+          ytitle: '',
+          interval: 180000,
+          chartInterval: 900000,
+          paymentInterval: 30000
+        }
+      }
     }
   };
 

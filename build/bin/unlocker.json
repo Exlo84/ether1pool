@@ -19,7 +19,7 @@
 
 		"stratum": {
 			"enabled": true,
-			"listen": "0.0.0.0:8008",
+			"listen": "0.0.0.0:8002",
 			"timeout": "120s",
 			"maxConn": 8192
 		},
@@ -82,8 +82,8 @@
 
 	"unlocker": {
 		"enabled": true,
-		"poolFee": 0.33,
-		"poolFeeAddress": "0x3f7719aa27b1107991e208ba2335c0a8afe8cb21",
+		"poolFee": 0.5,
+		"poolFeeAddress": "",
 		"donate": false,
 		"depth": 120,
 		"immatureDepth": 20,
@@ -95,15 +95,15 @@
 
 	"payouts": {
 		"enabled": false,
-		"requirePeers": 5,
-		"interval": "3m",
+		"requirePeers": 25,
+		"interval": "30m",
 		"daemon": "http://127.0.0.1:8545",
 		"timeout": "10s",
-		"address": "0x3f7719aa27b1107991e208ba2335c0a8afe8cb21",
-		"gas": "88888",
+		"address": "",
+		"gas": "21000",
 		"gasPrice": "50000000000",
 		"autoGas": true,
-		"threshold": 8800000000,
+		"threshold": 100000000,
 		"bgsave": false
 	},
 
