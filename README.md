@@ -130,7 +130,7 @@ Copy the following
     After=network-online.target
     
     [Service]
-    ExecStart=/usr/local/bin/geth --rpc --rpcaddr 127.0.0.1 --rpcport 8545 --syncmode "fast" --etherbase <your-address> --mine --extradata "<your-pool>"
+    ExecStart=/usr/local/bin/geth --rpc --allow-insecure-unlock --rpcaddr 127.0.0.1 --rpcport 8545 --syncmode "fast" --etherbase <your-address> --mine --extradata "<your-pool>"
     User=<your-user-name>
     
     [Install]
@@ -167,7 +167,7 @@ Copy the following
     After=geth.target
     
     [Service]
-    ExecStart=/home/<name>/ether1pool/build/bin/open-ethereum-pool /home/<name>/ether1pool/build/bin/api.json
+    ExecStart=/home/<name>/ether1pool/build/bin/open-ethereum-pool /home/<name>/ether1pool/config.json
     
     [Install]
     WantedBy=multi-user.target
@@ -196,6 +196,8 @@ Create frontend
     sudo chown -R $USER:$GROUP ~/.config
     npm install
     bower install
+    npm i intl-format-cache
+    
     ./build.sh
 
 
