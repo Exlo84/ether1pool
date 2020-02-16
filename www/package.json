@@ -48,6 +48,7 @@
   "dependencies": {
     "bower": "^1.8.8",
     "cldr-core": "^34.0.0",
+    "coingecko-api": "^1.0.10",
     "ember-cli-version-checker": "^2.2.0"
   }
 }
