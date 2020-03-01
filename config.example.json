@@ -54,7 +54,7 @@
 		"statsCollectInterval": "5s",
 		"hashrateWindow": "1h",
 		"hashrateLargeWindow": "6h",
-		"luckWindow": [64, 128, 256],
+		"luckWindow": [64, 128, 256, 1000],
 		"payments": 30,
 		"blocks": 50,
 		"poolCharts":"*/20 * * * *",
