@@ -4,6 +4,10 @@ import config from '../config/environment';
 export default Ember.Route.extend({
   intl: Ember.inject.service(),
 
+	toggleMenu: function() {
+		 Ember.$('.navbar-collapse.in').attr("aria-expanded", false).removeClass("in");
+		},
+		
   beforeModel() {
     this.get('intl').setLocale('en-us');
   },
