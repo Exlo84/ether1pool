@@ -11,7 +11,7 @@
       <font face="tabia"><a class="navbar-brand" href="/" style="font-size: 24px"><span class="logo-1"><b>EthoDream</b></span><span class="logo-2">POOL</span></a></font>
     </div>
     <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav" {{action 'toggleMenu'}}>
         {{#active-li currentWhen='index'}}
           {{#link-to 'index'}}
             <i class="fa fa-home"></i> Home
