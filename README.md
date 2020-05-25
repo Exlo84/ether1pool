@@ -241,6 +241,27 @@ Restart nginx
 
     sudo service nginx restart
 
+### How To Secure the pool frontend with Let's Encrypt (https)
+
+First, install the Certbot's Nginx package with apt-get
+
+
+    $ sudo add-apt-repository ppa:certbot/certbot
+    $ sudo apt-get update
+    $ sudo apt-get install python-certbot-nginx
+And then open your nginx setting file, make sure the server name is configured!
+
+    $ sudo nano /etc/nginx/sites-available/default
+    . . .
+    server_name <your-pool-domain>;
+    . . .
+
+Change the _ to your pool domain, and now you can obtain your auto-renewaled ssl certificate for free!
+
+    $ sudo certbot --nginx -d <your-pool-domain>
+
+Now you can access your pool's frontend via https!
+
 ### Notes
 
 * Unlocking and payouts are sequential, 1st tx go, 2nd waiting for 1st to confirm and so on. You can disable that in code. Carefully read `docs/PAYOUTS.md`.
